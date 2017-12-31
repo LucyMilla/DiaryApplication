@@ -41,6 +41,7 @@ public class DiaryActivity extends AppCompatActivity {
     private void saveDiary(){
         Diary diary = new Diary(System.currentTimeMillis(), mEtTitle.getText().toString()
                 , mEtContext.getText().toString());
+        /*calling this, for the object wouldnt show the toast message but getApplicationContext worked. */
 
         if(Utilities.saveDiary(this, diary)) {
             Toast.makeText (getApplicationContext(), "Success!! Diary Entry Saved", Toast.LENGTH_SHORT).show();

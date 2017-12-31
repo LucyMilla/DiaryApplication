@@ -4,20 +4,24 @@ import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
 
+import java.io.Serializable;
 import java.util.Date;
+
 
 /**
  * Created by Lucy on 28/12/2017.
  */
 
-public class Dairytakes {
+/**Serializable so when application is left, when returned data objects are still saved*/
+
+public class Diary implements Serializable{
 
     private long mDateTime;
     private String mTitle;
     private String mContent;
 
 
-    public Dairytakes(long dateTime, String title, String content) {
+    public Diary(long dateTime, String title, String content) {
         mDateTime = dateTime;
         mTitle = title;
         mContent = content;

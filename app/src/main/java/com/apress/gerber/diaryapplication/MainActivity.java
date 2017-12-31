@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,5 +37,21 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mListViewDiarytakes.setAdapter(null);
+
+        ArrayList<Diary> diaries = Utilities.getAllSavedDiary(this);
+
+        if(diaries == null || diaries.size() == 0){
+            Toast.makeText(getApplicationContext(), "You have No saved diary entries", Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            DiaryAdapter na = new DiaryAdapter(this,R.layout.take_diary,diaries);
+            mListViewDiarytakes.setAdapter(na);
+        }
     }
 }
