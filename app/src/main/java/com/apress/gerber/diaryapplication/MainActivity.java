@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         }else{
             DiaryAdapter na = new DiaryAdapter(this,R.layout.take_diary,diaries);
             mListViewDiarytakes.setAdapter(na);
+
+            mListViewDiarytakes.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                    String fileName = ((Diary)mListViewDiarytakes.getItemAtPosition(position)).getDateTime()
+                            + Utilities.FILE_EXTENSION;
+                    Intent viewDiaryIntent = new Intent(getApplicationContext(),DiaryActivity.class);
+                    viewDiaryIntent.putExtra("DIARY_FILE", fileName);
+                    startActivity(viewDiaryIntent);
+                }
+            });
         }
     }
 }
