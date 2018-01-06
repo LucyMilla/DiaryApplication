@@ -9,10 +9,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/notepad"
     tools:context="com.apress.gerber.diaryapplication.MainActivity">
 
     <ListView
         android:id="@+id/takes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+    </ListView>
 </LinearLayout>

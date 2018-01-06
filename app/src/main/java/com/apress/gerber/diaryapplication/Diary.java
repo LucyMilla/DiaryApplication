@@ -39,6 +39,8 @@ public class Diary implements Serializable{
         mTitle = title;
     }
 
+
+
     public long getDateTime(){
         return mDateTime;
     }
@@ -48,6 +50,8 @@ public class Diary implements Serializable{
     public String getContent(){
         return mContent;
     }
+
+
     public String getDateTimeFormatted(Context context){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"
                 , context.getResources().getConfiguration().locale);

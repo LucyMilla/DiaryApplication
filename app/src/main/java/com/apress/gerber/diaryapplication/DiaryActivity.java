@@ -1,7 +1,10 @@
 package com.apress.gerber.diaryapplication;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -16,11 +19,15 @@ public class DiaryActivity extends AppCompatActivity {
     private EditText mEtContent;
     private String mDiaryFileName;
     private Diary mLoadedDiary;
+    ActionBar actionBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#663300")));
 
         mEtTitle = (EditText) findViewById(R.id.diarytitle);
         mEtContent = (EditText) findViewById(R.id.diarycontent);
@@ -31,8 +38,10 @@ public class DiaryActivity extends AppCompatActivity {
             if (mLoadedDiary != null) {
                 mEtTitle.setText(mLoadedDiary.getTitle());
                 mEtContent.setText(mLoadedDiary.getContent());
+
             }
         }
+
     }
 
     @Override
